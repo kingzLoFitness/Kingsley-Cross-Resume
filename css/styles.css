@@ -1,0 +1,295 @@
+/* Color Palette
+#EF233C - 
+#2B2D42 - 
+#8D99AE - light blue
+#EDF2F4 - 
+#8D99AE - 
+#F4EFED - 
+*/
+
+/* Global styles
+------------------------------------*/
+
+/* border-box is used to make it easier to keep track of element widths; padding and border are merged with original box size and z` bigger than that.  See details in Reference book: CSS3 Missing Manual... 
+Details on page 215-217, 576 and 602 with this link: 
+https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	margin: 0;
+}
+
+a {
+	color: #EF233C;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+h1, h2 {
+	font-family: 'Blippo', fantasy;
+	font-weight: 400;
+}
+
+h1 {
+	font-size: 60px;
+}
+
+/* surrounding the margins change so the h2 is connected to the top border box */
+h2 {
+	font-size: 30px;
+	margin-top: 0;
+}
+
+h3 {
+	margin: 0;
+}
+
+p {
+	line-height: 1.5em;
+}
+
+
+
+
+.content-wrap {
+	max-width: 950px;
+	margin: 0 auto;
+	/* additional spacing within the sorounding words */
+	padding: 50px;
+	/* not entirely sure why this was put in, but I put it in to look over it again, when I look over this code again.  I also googled and looked over reference through 
+	BOOK: CSS3 Missing Manual p. 218, 222, 428, 586 */
+	overflow: hidden;
+}
+
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+/* Header & Footer 
+------------------------------------*/
+/* Reference from book: CSS3 MM 
+(see Figure 15-2) p. 491
+defined: When Absolute 	Positioning is Relative p. 493
+*/
+header {
+	padding-top: 10px;
+	margin-top: -10px;
+	position: relative;
+}
+
+
+header, footer {
+	background: #2B2D42;
+	color: #8D99AE;
+	/* temporary; delete later */
+	/*border: 1px solid yellow;*/
+}
+
+header div.content-wrap {
+	margin-top: 50px;
+/*	border: 1px solid yellow;*/
+}
+
+header h1, header h2 {
+	color: #EDF2F4;
+	margin: 0;
+	/*padding-bottom: .1em;*/
+}
+
+
+header p {
+	line-height: 1.5em;
+}
+
+/* Guestimate with pseudocode on creating:
+- circle around image
+- floats to the left 
+- additional lorum ipsum information to surround the image; fillins (optional)
+*/
+.profile-img {
+	/*float: left;*/
+	padding-right: 10px;
+	padding-bottom: 10px;
+	/* full circle 
+	reference: p. 574 CSS3 Missing Manual. 
+	See more dtails when you look over this again. 
+	this is in comparision to what I had before, being:
+	
+	border-radius: 15em; */
+	border-radius: 100%; 	
+	width: 30%;
+	/*border: 1px solid;*/
+}
+
+
+/* download button */
+.downloadPDF {
+	/*border: 1px solid white;*/
+	text-decoration: none;
+	padding: 10px;
+	background: red;
+	color: white;
+	/*float: right;*/
+	/*margin-right: -10px;
+	margin-bottom: -50px;*/
+	
+	display: inline-block;
+}
+
+.download {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}	
+
+
+
+/* footer */
+footer {
+	/* everthing centered */
+	text-align: center;
+}
+
+/* Debate whether to put in this piece of code to either take away or keep in the underline
+
+footer a {
+	text-decoration: none;
+}
+*/
+/* within the footer, the navigation display.  
+Reference p. 308 Book: CSS3 Missing Manual */
+.contact-info li {
+	/* list item as inline elements +*/
+	display: inline;
+	padding: 10px;
+}
+
+
+/* ?????????? Why is this even here ?????????? 
+above code ".contact-info li" is used instead */
+.contact-info a {
+
+}
+
+/* Navigation
+------------------------------------*/
+nav {
+	text-align: center;
+	background-color: #8D99AE;
+	position: fixed;
+	top: 0;
+	/* found out that I should use the width property to exapnd the navigation, after making the position fixed */
+	width: 100%;
+	/*border: 1px solid;*/
+}
+
+nav a {
+	display: inline-block;
+	padding: 15px 20px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+
+/* Work Experience
+------------------------------------*/
+.work {
+	background: #EDF2F4;
+	/*border: 1px solid red; */
+}
+
+/* selects all p tags that are siblings to h3.
+Referenced Book: CSS3 MM p. 79 */
+h3 ~ p {
+	margin: 0;
+}
+
+.job-description {
+	margin-bottom: 25px;
+}
+
+/* :first-of-type works like :first-child but applies to a child that has a particular tag.
+Referenced off Book: CSS3 Missing Manual p.77 */
+.job-description p:first-of-type {
+	margin-top: 0;
+}
+
+
+/* Skills
+------------------------------------*/
+.skills {
+	background: #F4EFED;
+}
+
+.skills ul {
+	line-height: 25px;
+}
+
+
+
+/* Education
+------------------------------------*/
+/* this is how the background is made as part of a website goes through a scrolling perspective.  In this case the background for the section called education.
+
+- Reference Book: CSS3 MM p. 243, 91, 178, 204-244, 415, 495, 257-259, tutorial 282-291, 250-251, 256 shorthand, 262
+
+one too many reference points.  Time to sleep on this one and get back to it when I wake up fresh. 
+
+- background shorthand property p. 255
+	- type background followed by the values for background-image, background-position, backgroundrepeat, background-attachment, and background-color.
+	- but the order is the gradient color above the image / repeat / etc.
+- linear-gradients p.260-261
+*/
+.education {
+	background: linear-gradient(rgba(141, 153, 174, 0.8),rgba(141, 153, 174, 0.5)), url(../images/toronto.jpg) no-repeat fixed;
+	background-size: cover;
+}
+
+p + h3 {
+	margin-top: 30px;
+}	
+
+
+
+
+
+
+
+/* Media Queries
+---------------------------*/
+@media (min-width: 900px) {
+	.col-narrow {
+		width: 30%;
+		float: left;
+	/*	min-height: 175px;
+	*/}
+
+	.col-wide {
+		width: 70%;
+		float: left;
+		padding-left: 20px;
+	/*	min-height: 175px;
+	*/	/*border: 1px solid;*/
+	}
+}
+@media (max-width: 899px) {
+	header {
+		text-align: center;
+	}
+	.profile-img {
+		width: 200px;
+	}
+}
