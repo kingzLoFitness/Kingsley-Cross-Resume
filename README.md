@@ -1,2 +1,2 @@
 # Kingsley Cross's Resume
-##### (that's me)
+##### My historic journey as a Web Developer and Graphic Designer
